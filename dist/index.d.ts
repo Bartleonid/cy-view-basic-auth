@@ -6,4 +6,4 @@ interface DeviceList {
 declare type Device = object;
 declare type DeviceListArray = Device[];
 declare type Urls = string[];
-declare function prepareTestsForDevices(deviceList: DeviceListArray): (pageList: Urls, callback: any) => void;
+declare function prepareTestsForDevices(deviceList: DeviceListArray): (pageList: Urls, callback: any, auth?: Cypress.Auth) => void;
