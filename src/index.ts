@@ -13,8 +13,10 @@ type DeviceListArray = Device[];
 
 type Urls = string[];
 
-function prepareTestsForDevices(deviceList: DeviceListArray) {
-	return function setPagesToTest(pageList: Urls, callback: any, auth?: Cypress.Auth): void {
+type Auth = Cypress.Auth;
+
+function prepareTestsForDevices(deviceList: DeviceListArray,  auth?: Auth) {
+	return function setPagesToTest(pageList: Urls, callback: any): void {
 		pageList.forEach((page: string) => {
 			context(`${page}`, () => {
 				deviceList.forEach((device: DeviceList) => {
