@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="node" />
 function prepareTestsForDevices(deviceList) {
-    return function setPagesToTest(pageList, callback, auth) {
+    return function setPagesToTest(pageList, auth, callback) {
         pageList.forEach(function (page) {
             context("" + page, function () {
                 deviceList.forEach(function (device) {
