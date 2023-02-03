@@ -23,7 +23,7 @@ function prepareTestsForDevices(deviceList: DeviceListArray, auth: Auth) {
 					context(`Testing on ${device.model}`, () => {
 						beforeEach(() => {
 							cy.viewport(device.width, device.height);
-							cy.visit(page, {auth});
+							cy.visit(page, auth);
 						});
 
 						callback();
