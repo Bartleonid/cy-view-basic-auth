@@ -15,15 +15,15 @@ type Urls = string[];
 
 type Auth = Cypress.Auth;
 
-function prepareTestsForDevices(deviceList: DeviceListArray,  auth?: Auth) {
-	return function setPagesToTest(pageList: Urls, callback: any): void {
+function prepareTestsForDevices(deviceList: DeviceListArray) {
+	return function setPagesToTest(pageList: Urls, auth: Auth, callback: any): void {
 		pageList.forEach((page: string) => {
 			context(`${page}`, () => {
 				deviceList.forEach((device: DeviceList) => {
 					context(`Testing on ${device.model}`, () => {
 						beforeEach(() => {
 							cy.viewport(device.width, device.height);
-							cy.visit(page, auth);
+							cy.visit(page, {auth});
 						});
 
 						callback();
